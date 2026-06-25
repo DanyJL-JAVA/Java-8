@@ -1,0 +1,26 @@
+import java.util.*;
+import java.util.stream.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		String arr[] = { "sunday", "monday", "tuesday", "wednesday", "thursday" };
+
+		String[] array = Arrays.stream(arr)
+				.map(n -> arr[3] == n ? new StringBuilder(n).reverse().toString().toUpperCase() : n)
+				.toArray(String[]::new);
+
+		System.out.println("[Array] => \s" + Arrays.toString(array));
+
+		List<String> arrlst = new ArrayList<String>(
+				Arrays.asList("sunday", "monday", "tuesday", "wednesday", "thursday"));
+
+		List<String> lst = arrlst.stream().map(
+				a -> arrlst.get(3) == String.valueOf(a) ? new StringBuilder(a).reverse().toString().toUpperCase() : a)
+				.collect(Collectors.toList());
+
+		System.out.println("[List] => " + lst);
+
+	}
+}
