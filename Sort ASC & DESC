@@ -31,6 +31,16 @@ public class Main {
 
 		lst.forEach(System.out::println);
 
+//		List<TempVo> doublelst = arrlst.stream().sorted(Comparator.comparingDouble(TempVo::getSalary).reversed())
+//				.collect(Collectors.toList());
+//
+//		doublelst.forEach(System.out::println);
+//
+//		List<TempVo> Integerlst = arrlst.stream().sorted(Comparator.comparingInt(TempVo::getRegisterNo).reversed())
+//				.collect(Collectors.toList());
+//
+//		Integerlst.forEach(System.out::println);
+
 	}
 
 }
