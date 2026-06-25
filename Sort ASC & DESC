@@ -1,0 +1,137 @@
+import java.util.*;
+import java.util.stream.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Main obj = new Main();
+
+//		private int registerNo;
+//		private String name;
+//		private double salary;
+//		private String place;
+
+		List<TempVo> arrlst = Arrays.asList(new TempVo(12, "fazil", 5000, "kerala"),
+				new TempVo(51, "Jamal", 7830, "chennai"), new TempVo(90, "arayan", 9032, "tanjore"),
+				new TempVo(56, "santhosh", 9832, "chennai"), new TempVo(77, "ram", 23843, "tanjore"),
+				new TempVo(29, "hari", 8849, "kerala"), new TempVo(89, "ganesh", 3291, "chennai"));
+
+		List<TempVo> lst = arrlst.stream().sorted(new Comparator<>() {
+
+			@Override
+			public int compare(TempVo a, TempVo b) {
+
+				return (int) a.getRegisterNo() - b.getRegisterNo(); // asc Order
+//				return (int) b.getRegisterNo() - a.getRegisterNo(); // Desc Order
+
+			}
+
+		}).collect(Collectors.toList());
+
+		lst.forEach(System.out::println);
+
+	}
+
+}
+
+
+
+// POJO Class
+
+//import java.util.*;
+//import java.util.stream.*;
+//
+//public class TempVo {
+//
+//	private int registerNo;
+//	private String name;
+//	private double salary;
+//	private String place;
+//
+//	public TempVo(int registerNo, String name, double salary, String place) {
+//
+//		this.registerNo = registerNo;
+//		this.name = name;
+//		this.salary = salary;
+//		this.place = place;
+//
+//	}
+//
+//	// registerNo
+//	public int getRegisterNo() {
+//
+//		return registerNo;
+//
+//	}
+//
+//	public void setRegisterNo(int registerNo) {
+//
+//		this.registerNo = registerNo;
+//
+//	}
+//
+//	//
+//
+//	// name
+//	public String name() {
+//
+//		return name;
+//	}
+//
+//	public void setName(String name) {
+//
+//		this.name = name;
+//
+//	}
+//
+//	//
+//
+//	// salary
+//
+//	public double getSalary() {
+//
+//		return salary;
+//
+//	}
+//
+//	public void setSalary(double salary) {
+//
+//		this.salary = salary;
+//
+//	}
+//
+//	// place
+//
+//	public String getPlace() {
+//
+//		return place;
+//	}
+//
+//	public void setPlace(String place) {
+//
+//		this.place = place;
+//
+//	}
+//
+//	// toString
+//
+////	private int registerNo;
+////	private String name;
+////	private double salary;
+////	private String place;
+//
+//	public String toString() {
+//
+//		return "[TempVo -> registerNo = " + registerNo + "| name = " + name + " |salary =" + salary + "| place = "
+//				+ place + "]";
+//
+//	}
+//
+//}
+
+
+
+
+
+
