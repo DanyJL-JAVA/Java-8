@@ -1,0 +1,46 @@
+import java.util.*;
+import java.util.stream.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Main obj = new Main();
+
+		// Java 8
+
+		String s = "String";
+
+		String result = IntStream.rangeClosed(0, s.length() - 1).mapToObj(i -> s.charAt(s.length() - 1 - i))
+				.map(Object::toString).collect(Collectors.joining());
+
+		System.out.println(result);
+
+		// or normal way
+
+//		String str = "";
+//		for (int i = s.length() - 1; i >= 0; i--) {
+//
+//			str += s.charAt(i);
+//
+//		}
+//
+//		System.out.println(str);
+
+		// Other way --> using StringBuilder
+
+//		String str = "";
+//
+//		StringBuilder strBuild = new StringBuilder();
+//
+//		for (char a : s.toCharArray()) {
+//
+//			strBuild.append(a);
+//
+//		}
+//
+//		System.out.println(strBuild.reverse().toString());
+
+	}
+
+}
