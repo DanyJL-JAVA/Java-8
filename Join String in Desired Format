@@ -1,0 +1,21 @@
+import java.util.*;
+import java.util.stream.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		// output : [Facebook,Twitter,YouuTube,WhatsApp,LinkedIn]
+
+		List<String> arrlst = Arrays.asList("Facebook", "Twitter", "YouuTube", "WhatsApp", "LinkedIn");
+
+		// joining(1,2,3) --> 1. Delimiter inbetween characters 2. prefix begining of
+		// the String 3. suffix end of the String
+
+		String result = arrlst.stream().collect(Collectors.joining(",", "[", "]"));
+
+		System.out.println(result);
+
+	}
+
+}
