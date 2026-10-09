@@ -12,8 +12,12 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Integer num = 5;
 
-        Integer result = IntStream.rangeClosed(1,5).mapToObj(c -> (char) c)
+        // *Don't forget to give '1' int the Default value for Both RangeClosed() & reduce().
+        // Because the default Should not be zero, as the result Multiplied will final result to zero.
+
+        Integer result = IntStream.rangeClosed(1,num).mapToObj(c -> (char) c)
                 .mapToInt(Integer::valueOf).reduce(1,(a,b) -> a * b);
 
         System.out.println(result);
