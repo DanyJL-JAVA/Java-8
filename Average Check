@@ -1,0 +1,40 @@
+import java.util.*;
+import java.util.stream.*;
+import java.util.Iterator;
+import java.sql.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+
+
+public class Main{
+
+    public static void main(String[] args){
+
+
+        List<Integer> arrlst = Arrays.asList(10, 20, 30, 40, 50);
+
+        Double result = arrlst.stream().mapToInt(Integer::valueOf).average().getAsDouble();
+
+        System.out.println(result);
+
+
+
+//        Key Methods
+//
+//• mapToInt() / mapToDouble() / mapToLong(): Converts a generic Stream<T> into a primitive specialization (IntStream, DoubleStream, or LongStream) so you can access aggregate functions.
+//• average(): Computes the arithmetic mean and returns an OptionalDouble (which avoids NullPointerException or empty-collection errors).
+//• orElse(0.0) or getAsDouble(): Extracts the double value from the OptionalDouble, or returns a fallback value if the stream has no elements
+
+
+        // OR
+
+//        Double result = arrlst.stream().mapToInt(Integer::intValue).average().orElse(0);
+//
+//        System.out.println(result);
+
+
+    }
+
+
+}
