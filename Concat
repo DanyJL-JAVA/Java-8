@@ -1,0 +1,79 @@
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
+import java.util.Iterator;
+import java.sql.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+
+
+public class Main {
+
+
+
+    public static void main(String[] args) {
+
+
+        // 1. Array
+        Integer[] arr1 = {23,103,11,5,89,43,21,};
+        Integer[] arr2 = {29,101,2};
+
+        Integer[] array = Stream.concat(Arrays.stream(arr1),Arrays.stream(arr2)).toArray(Integer[]::new);
+        System.out.println(Arrays.toString(array));
+
+
+        // 2. List
+        List<String> lst1 = Arrays.asList("Moon","star");
+        List<String> lst2 = Arrays.asList("sun","venus");
+
+        List<String> lst = Stream.concat(lst1.stream(),lst2.stream()).collect(Collectors.toList());
+        System.out.println(lst);
+
+        // 3. Map
+        Map<String,Integer> hashmap1 = Map.of("Monday",1,"TuesDay",2,"Wednesday",3);
+        Map<String,Integer> hashmap2 = Map.of("Thursday",4,"Friday",5);
+
+        Map<String,Integer> hashmap = Stream.concat(hashmap1.entrySet().stream(),hashmap2.entrySet().stream())
+                .collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue,(a,b) -> a, LinkedHashMap::new));
+
+        System.out.println(hashmap);
+
+        // 4. Map -> With Priority (a,b) -> a
+
+        Map<String,Integer> hashmap3 = Map.of("apple",50,"mango",30,"Custard",105);
+        Map<String,Integer> hashmap4 = Map.of("mango",90,"melon" ,20);
+
+        // * Generally map Will not Accept Duplicate Entry. To OverCome that We Have Priority attribute inside .toMap() method, To Choose which one should to take.
+        // Without using the Priority [(a,b) -> a] we get Exception => (Exception in thread "main" java.lang.IllegalStateException: Duplicate key mango (attempted merging values 30 and 90))
+
+        Map<String,Integer> hash = Stream.concat(hashmap3.entrySet().stream(),hashmap4.entrySet().stream())
+                .collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue,(a,b) -> a, LinkedHashMap::new));
+
+        System.out.println(hash);
+
+        // 5. Map -> With Addition
+
+        // * In this We have an Attribute in .toMap() method (i.e) -> Integer::sum -> This will help us to Sum the Values of the Same key. To OverCome from the Duplicates.
+
+        Map<String,Integer> hash1 = Stream.concat(hashmap3.entrySet().stream(),hashmap4.entrySet().stream())
+                .collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue,Integer::sum,LinkedHashMap::new));
+
+
+        System.out.println(hash1);
+
+
+// OUTPUT
+
+//        [23, 103, 11, 5, 89, 43, 21, 29, 101, 2]
+//        [Moon, star, sun, venus]
+//        {Wednesday=3, TuesDay=2, Monday=1, Thursday=4, Friday=5}
+//        {mango=30, apple=50, Custard=105, melon=20}
+//        {mango=120, apple=50, Custard=105, melon=20}
+
+
+
+
+    }
+
+}
