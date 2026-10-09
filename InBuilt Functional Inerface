@@ -1,0 +1,75 @@
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
+import java.util.Iterator;
+import java.sql.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+
+
+public class Main{
+
+    public static void main(String[] args){
+
+        // Custom InBuilt Functional Interface
+
+        //1. Predicate --------------------------------------------------------------
+
+        // -> Returns Boolean Value (T/F), Contains .test() abstract method, Duty is to Check the Condition.
+
+        Predicate<String> Pred = (a) -> a.length() == 3;
+
+        System.out.println(Pred.test("sun"));
+
+        // 2. Function --------------------------------------------------------------
+
+        // -> TransFormation of Data, Contains .apply() abstract method, Duty is to Transforming the given data or value,
+        // Should be defined with Two Datatypes (i.e) both Input and Output that is Returning datatype.
+
+        Function<Integer,Integer> Func = (a) -> a * 3;
+
+        System.out.println(Func.apply(4));
+
+        // 3. BiFunction --------------------------------------------------------------
+        // -> Enhancement of Function, Same Functionality but the Diffence in Defining the Datatype. here we Can Give Two Input Parameters
+        // So, That We need to define Three(3)  Datatypes.
+
+        BiFunction<Integer,Integer,Integer> biFunc = (a,b) -> a * b;
+
+        System.out.println(biFunc.apply(5,8));
+
+        //4. Supplier --------------------------------------------------------------
+
+        // -> Supplies a Value, No Input Value, But Return Type is Exist,.get() abstract method is present.
+        // -> If Print is used define also cover with print in the sup.get().
+
+        Supplier sup = () -> {
+
+            System.out.print("All ");
+            return "is Good";
+        };
+
+        System.out.println(sup.get());
+
+        //5. Consumer --------------------------------------------------------------
+
+        // -> Consumes the Value, Straight Opposite to Supplier, No Return Type, But Input Values are accepted.
+        // .accept() abstract method is present.
+
+        Consumer cons = (a) -> System.out.println(a);
+
+        cons.accept("all the best!!");
+
+
+
+
+
+
+
+
+
+    }
+
+
+}
