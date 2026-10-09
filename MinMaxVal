@@ -1,0 +1,61 @@
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
+import java.util.Iterator;
+import java.sql.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+
+
+public class Main {
+
+
+
+    public static void main(String[] args) {
+
+
+        List<Integer> arrlst = List.of(23,12,56,78,22,13);
+
+        List<String> strlst = Arrays.asList("ganesh","ponmani","saratha","tamil","lavanya");
+
+        Integer[] arr = arrlst.toArray(new Integer[arrlst.size()]); // Coverting List to Array
+
+
+        // Numeric Oreder
+        Integer minVal = Arrays.stream(arr).min(Integer::compare).get();
+        Integer maxVal = Arrays.stream(arr).max(Integer::compare).get();
+
+        System.out.println("=> minVal \s" + minVal);
+        System.out.println("=> maxVal \s"+ maxVal);
+
+        // length Order
+        String minStr = strlst.stream().min(Comparator.comparingInt(String::length)).get();
+        String maxStr = strlst.stream().max(Comparator.comparingInt(String::length)).get();
+
+        System.out.println("minStr => \s"+minStr);
+        System.out.println("minStr => \s"+maxStr);
+
+        // Alphabetic Order
+        String minlen = strlst.stream().sorted(Comparator.naturalOrder()).findFirst().get();
+        String maxlen = strlst.stream().sorted(Comparator.reverseOrder()).findFirst().get();
+
+        System.out.println("minlen =>"  + minlen);
+        System.out.println("maxlen =>"  + maxlen);
+
+
+        // OUTPUT :
+//        minVal => 12
+//        maxVal => 78
+//        minStr => tamil
+//        minStr => ponmani
+//        minlen => ganesh
+//        maxlen => tamil
+
+
+
+
+
+    }
+
+}
