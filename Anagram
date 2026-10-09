@@ -1,0 +1,44 @@
+import java.util.*;
+import java.util.stream.*;
+import java.util.Iterator;
+import java.sql.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+
+
+public class Main{
+
+    public static void main(String[] args){
+
+
+        String s1 = "silent";
+        String s2 = "listen";
+
+        // OUTPUT : true
+
+        boolean result = s1.chars().mapToObj(c -> (char) c).map(Object::toString).sorted(Comparator.naturalOrder())
+                .collect(Collectors.joining()).equals(s2.chars().mapToObj(c -> (char) c).map(Object::toString)
+                        .sorted(Comparator.naturalOrder()).collect(Collectors.joining()));
+
+        System.out.println(result);
+
+
+        // or -> In Traditional Way
+
+//        char[] a = s1.toCharArray();
+//        char[] b = s2.toCharArray();
+//
+//        Arrays.sort(a);
+//        Arrays.sort(b);
+//
+//        System.out.println(Arrays.equals(a,b));
+
+
+
+
+
+    }
+
+
+}
