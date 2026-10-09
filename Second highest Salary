@@ -1,0 +1,46 @@
+import java.util.*;
+import java.util.stream.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.Iterator;
+import java.sql.*;
+
+
+
+public class Main{
+
+
+    public static void main(String[] args){
+
+        // Second highest Salary
+
+//        private int registerNo;
+//        private String eName;
+//        private double salary;
+//        private String place;
+
+
+        List<EmployeeVo> arrlst = Arrays.asList(new EmployeeVo(23,"santhosh",9088,"chennai"),
+                new EmployeeVo(9,"billa",7390,"kerala"),
+                new EmployeeVo(7821,"harish",2830,"kerala"),
+                new EmployeeVo(12,"kalai",2910,"kerala"));
+
+        EmployeeVo result = arrlst.stream().sorted(Comparator.comparingDouble(EmployeeVo::getSalary).reversed())
+                .skip(1).limit(1).findFirst().get();
+
+        System.out.println(result); // OUTPUT : [EmployeeVo = registerNo9 | eName = billa | salary = 7390.0 | place = kerala]
+
+        System.out.println("=================================================================");
+
+        arrlst.stream().sorted(Comparator.comparingDouble(EmployeeVo::getSalary)).forEach(System.out::println);
+
+
+
+
+    }
+
+
+}
+
+
