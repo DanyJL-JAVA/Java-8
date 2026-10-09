@@ -1,0 +1,49 @@
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
+import java.util.Iterator;
+import java.sql.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+
+
+public class Main {
+
+
+    @FunctionalInterface
+    public interface AddAll{
+
+
+        int addIt(int a, int b);
+
+    }
+
+    public interface CheckAll{
+
+
+        boolean checkIt(String s);
+
+    }
+
+
+    public static void main(String[] args) {
+
+        // Custom Functional Interface.
+
+        // AddAll
+        AddAll ad = (a,b) -> a + b;
+
+        System.out.println(ad.addIt(8,9)); // 17
+
+
+        // CheckAll
+
+        CheckAll ch = (a) -> a.length() == 3;
+
+        System.out.println(ch.checkIt("all")); // true
+
+
+    }
+
+}
