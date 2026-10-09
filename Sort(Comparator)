@@ -1,0 +1,53 @@
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
+import java.util.Iterator;
+import java.sql.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+
+
+public class Main {
+
+
+
+    public static void main(String[] args) {
+
+
+Main obj = new Main();
+
+//        private int registerNo;
+//        private String eName;
+//        private double salary;
+//        private String place;
+
+
+List<EmployeeVo> arrlst = Arrays.asList(new EmployeeVo(23,"santhosh",8900,"chennai"),
+        new EmployeeVo(12,"harish",8301,"kerala"),
+        new EmployeeVo(32,"billa",8912,"chennai"),
+        new EmployeeVo(11,"sathish",1029,"chennai"));
+
+
+// 1. Sorting Salary(Double)
+//        List<EmployeeVo> lst = arrlst.stream().sorted(Comparator.comparingDouble(EmployeeVo::getSalary)).collect(Collectors.toList());
+//
+//        lst.forEach(System.out::println);
+
+        //2. Sorting RegisterNo(Integer)
+
+//        List<EmployeeVo> lst = arrlst.stream().sorted(Comparator.comparingInt(EmployeeVo::getRegisterNo)).collect(Collectors.toList());
+//        lst.forEach(System.out::println);
+
+
+
+        // 3. Sorting Names(String)
+//        List<EmployeeVo> lst = arrlst.stream().sorted(Comparator.comparing(EmployeeVo::getEname)).collect(Collectors.toList());
+//
+//        lst.forEach(System.out::println);
+
+
+
+    }
+
+}
