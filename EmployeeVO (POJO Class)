@@ -1,0 +1,107 @@
+import java.util.*;
+import java.util.stream.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.Iterator;
+import java.sql.*;
+
+
+public class EmployeeVo{
+
+    private int registerNo;
+    private double salary;
+    private String eName;
+    private String place;
+
+
+    public EmployeeVo(int registerNo, double salary, String eName, String place){
+
+        this.registerNo = registerNo;
+        this.salary = salary;
+        this.eName = eName;
+        this.place = place;
+
+    }
+
+    // registerNo
+
+    public int getRegisterNo(){
+
+
+        return  registerNo;
+
+    }
+
+    public void setRegisterNo(int registerNo){
+
+        this.registerNo = registerNo;
+
+    }
+
+
+    // salary
+
+    public double getSalary(){
+
+
+        return salary;
+
+    }
+
+    public void setSalary(double salary){
+
+
+        this.salary = salary;
+
+    }
+
+    // getEName
+
+    public String getEName(){
+
+        return eName;
+
+    }
+
+    public void setEName(String eName){
+
+        this.eName = eName;
+
+    }
+
+    // getPlace
+
+    public String getPlace(){
+
+
+        return place;
+
+    }
+
+    public void setPlace(String place){
+
+        this.place = place;
+
+    }
+
+
+    // toString
+
+//    public class EmployeeVo{
+//
+//        private int registerNo;
+//        private double salary;
+//        private String eName;
+//        private String place;
+    public String toString(){
+
+        return "[EmployeeVo = registerNo ="+registerNo+" | salary = "+salary+" | eName = "+eName+" | place = "+place+"]";
+        
+    }
+
+
+
+}
+
+
