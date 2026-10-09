@@ -1,0 +1,37 @@
+import java.util.*;
+import java.util.stream.*;
+import java.util.Iterator;
+import java.sql.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+
+
+public class Main{
+
+
+
+    public static void main(String[] args){
+
+
+        Main obj = new Main();
+
+Integer[] arr = {3,1,15,21,32,24,8,16};
+
+Integer[] array = Arrays.stream(arr).filter(n -> n % 2 == 0 ).toArray(Integer[]::new);
+       Integer result = Arrays.stream(arr).filter(n -> n % 2 == 0).reduce(0,(a,b) -> a + b);
+
+        System.out.println(Arrays.toString(array));
+        System.out.println(result);
+
+        // output :
+        // [32, 24, 8, 16]
+        //80
+
+
+
+
+    }
+
+
+}
