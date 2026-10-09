@@ -1,0 +1,53 @@
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
+import java.util.Iterator;
+import java.sql.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+
+
+public class Main {
+
+
+
+    public static void main(String[] args) {
+
+
+
+        List<EmployeeVo> arrlst = Arrays.asList(new EmployeeVo(32,8900,"Kalai","chennai"),
+                new EmployeeVo(90,6370,"Jamal","Kerala"),
+                new EmployeeVo(43,2210,"poonam","chennai"),
+                new EmployeeVo(20,3423,"harshath","kerala"),
+                new EmployeeVo(12,3489,"wilson","chennai"));
+
+
+        List<EmployeeVo> lst = arrlst.stream().sorted(new Comparator<EmployeeVo>() {
+
+
+            @Override
+            public int compare(EmployeeVo a, EmployeeVo b){
+
+
+                //ASC
+                return (int) a.getRegisterNo() - b.getRegisterNo();
+
+                // Desc
+//                return (int) b.getRegisterNo() - a.getRegisterNo();
+
+            }
+
+
+        }).collect(Collectors.toList());
+
+
+        lst.forEach(System.out::println);
+
+
+
+
+
+    }
+
+}
