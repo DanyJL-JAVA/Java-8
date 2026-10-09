@@ -1,0 +1,26 @@
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
+import java.util.Iterator;
+import java.sql.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+
+        Integer result = IntStream.rangeClosed(1,5).mapToObj(c -> (char) c)
+                .mapToInt(Integer::valueOf).reduce(1,(a,b) -> a * b);
+
+        System.out.println(result);
+
+
+//  OUTPUT : 120
+
+    }
+
+}
