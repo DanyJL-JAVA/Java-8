@@ -1,0 +1,34 @@
+import java.util.*;
+import java.util.stream.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.Iterator;
+import java.sql.*;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        List<Integer> arrlst = Arrays.asList(34, 21, 6, 32, 1, 12, 52, 25);
+
+        List<Integer> lst = arrlst.stream().map(s -> String.valueOf(s)).filter(a -> a.startsWith("2"))
+                .map(Integer::valueOf)
+                .collect(Collectors.toList());
+
+        System.out.println("List => " + lst);
+
+        Integer[] arr = arrlst.toArray(new Integer[arrlst.size()]);
+
+        Integer[] array = Arrays.stream(arr).map(String::valueOf).filter(a -> a.startsWith("2")).map(Integer::valueOf).toArray(Integer[]::new);
+
+        System.out.println("Array => " + Arrays.toString(array));
+
+
+    }
+
+
+}
+
+
