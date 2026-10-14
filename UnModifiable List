@@ -12,6 +12,8 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //*Don't forget to add 'NEW' keyword in ArrayList.
+
         List<String> arrlst = new ArrayList<String>(Arrays.asList("apple", "mango", "custard", "banana"));
 
         List<String> lst = Collections.unmodifiableList(arrlst);
