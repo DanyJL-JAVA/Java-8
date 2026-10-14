@@ -1,0 +1,29 @@
+import java.util.*;
+import java.util.stream.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.Iterator;
+import java.sql.*;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+
+        List<String> arrlst = Arrays.asList("monday", "tuesday", "wednesday", "thursday", "friday");
+
+        List<String> Asclst = arrlst.stream().sorted(Comparator.comparingInt(String::length)).collect(Collectors.toList());
+
+        List<String> Desclst = arrlst.stream().sorted(Comparator.comparingInt(String::length).reversed()).collect(Collectors.toList());
+
+        System.out.println(Asclst);
+        System.out.println(Desclst);
+
+    }
+
+
+}
+
+
