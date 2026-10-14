@@ -1,0 +1,39 @@
+import java.util.*;
+import java.util.stream.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.Iterator;
+import java.sql.*;
+
+
+public class Main {
+
+
+    public static void main(String[] args) {
+
+        List<String> arrlst = new ArrayList<String>(Arrays.asList("apple", "mango", "custard", "banana"));
+
+        List<String> lst = Collections.unmodifiableList(arrlst);
+
+
+        try {
+
+            lst.add("melon");
+
+        } catch (Exception e) {
+
+            System.out.println("Error => \s" + e.getMessage());
+
+        }
+
+        System.out.println(arrlst);
+        arrlst.add("yam");
+
+        System.out.println(lst);
+
+
+    }
+
+}
+
