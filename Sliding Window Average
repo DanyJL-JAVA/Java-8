@@ -1,0 +1,67 @@
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		
+		List<Integer> arrlst = Arrays.asList(4,8,15,16,23,42); // OUTPUT : [9.0, 13.0, 18.0, 27.0]
+		
+		int window = 3;
+		
+		List<List<Integer>> lst1 = IntStream.range(0, (arrlst.size() - (window - 1)))
+				.mapToObj(i -> arrlst.subList(i, i + window))
+				.collect(Collectors.toList());
+		
+		System.out.println(lst1); // Viewing the Index Pair 
+		
+		
+		
+		// Actuall Result
+		
+		// ls - (ws - 1) -> (i.e) 
+		
+		List<Double> lst = IntStream.range(0, (arrlst.size() - (window - 1)))
+				.mapToObj(i -> arrlst.subList(i, i + window))
+				.map(w -> w.stream().mapToInt(Integer::intValue)
+						.average().orElse(0.0)
+						).toList();
+		
+		System.out.println(lst);
+		
+		// *NOTE* -> Difference between .range() && .rangeClosed()
+		
+		// 1 -> .range() -> range(0,10) behaves like a standard for-loop: for(int i = 0; i < 10; i++). (i.e : Exclusive => Includes start, excludes end). 
+		// 2 -> .rangeClosed() -> rangeClosed(0,10) behaves like an inclusive loop: for(int i = 0; i <= 10; i++). (i.e : Inclusive => includes both start and end).
+		
+		
+		// *NOTE* -> How Average Calculation is Performed.
+		
+		// Consider we have an Array Of Integers.
+		
+		//1 ->  length of the Array (or) list size().
+		//2 ->  Add all the Integers inside the Array or list
+		//3 -> Finally, Divide the Added Value with the length of the Array or list.
+		
+		
+		// Formula : To Find the average
+//		[Add the Inner values in the given array or list] % [Total length of the Array (or) list] 
+		
+		// Eg :
+		// Integer[] arr = {4,8,15};
+		
+		// 27 % 3 = 9
+		
+		
+		
+		
+		
+				
+		 
+		
+	}
+
+}
+
