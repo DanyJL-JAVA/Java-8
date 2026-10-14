@@ -1,0 +1,29 @@
+import java.util.*;
+import java.util.stream.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.Iterator;
+import java.sql.*;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        List<TranscationVo> arrlst = Arrays.asList(new TranscationVo("10-09-2024", 5500)
+                , new TranscationVo("11-02-2023", 9800), new TranscationVo("10-09-2024", 1500),
+                new TranscationVo("21-10-2021", 8000), new TranscationVo("11-02-2023", 1200));
+
+
+        Map<String, Integer> hashmap = arrlst.stream()
+                .collect(Collectors.toMap(TranscationVo::getTDate, TranscationVo::getTAmount, Integer::sum));
+
+        System.out.println(hashmap); // OUTPUT : {11-02-2023=11000, 21-10-2021=8000, 10-09-2024=7000}
+
+    }
+
+
+}
+
+
