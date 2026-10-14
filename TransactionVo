@@ -1,0 +1,67 @@
+import java.util.*;
+import java.util.stream.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.Iterator;
+import java.sql.*;
+
+
+public class TranscationVo {
+
+
+    private String tDate;
+    private Integer tAmount;
+
+
+    public TranscationVo(String tDate,int tAmount){
+
+        this.tDate = tDate;
+        this.tAmount = tAmount;
+
+    }
+
+    // getDate
+    public String getTDate(){
+
+        return tDate;
+
+    }
+
+    public void setTDate(){
+
+        this.tDate = tDate;
+
+    }
+
+    //tAmount
+
+    public Integer getTAmount(){
+
+        return tAmount;
+
+    }
+
+    public void setTAmount(){
+
+        this.tAmount = tAmount;
+
+    }
+
+
+    public String toString(){
+
+
+//        private String tDate;
+//        private Integer tAmount;
+
+
+        return "[TranscationVo = tDate"+tDate+" tAmount = "+tAmount+"]";
+
+    }
+
+
+
+}
+
+
