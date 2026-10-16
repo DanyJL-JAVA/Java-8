@@ -1,0 +1,81 @@
+import java.time.LocalDate;
+import java.util.*;
+import java.util.Date;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.Iterator;
+import java.sql.*;
+import java.util.stream.*;
+
+
+public class Main {
+
+    public enum Range { // En ~ numeration | Instead of mention "class" as "enum" --> This enum Attributes Decalartion fields are not Changable.
+
+        LOW,
+        MEDIUM,
+        HIGH
+
+    }
+
+    public static void main(String[] args) {
+
+        Main obj = new Main();
+
+//        private int registerNo;
+//        private String eName;
+//        private double salary;
+//        private Date eDate;
+//        private String place;
+
+
+        List<SalaryVo> arrlst = Arrays.asList(new SalaryVo(23000, "santhosh", 9077, LocalDate.of(2004, 9, 9), "chennai"),
+                new SalaryVo(41, "ram", 91032, LocalDate.of(2003, 9, 12), "chennai"),
+                new SalaryVo(81, "fazil", 51600, LocalDate.of(2019, 2, 9), "kerala"),
+                new SalaryVo(19, "hari", 100000, LocalDate.of(2015, 10, 2), "chennai"),
+                new SalaryVo(16, "jamal", 82100, LocalDate.of(2003, 02, 8), "chennai")
+        );
+
+
+        Map<Range, List<SalaryVo>> hashmap = arrlst.stream().collect(Collectors.groupingBy(a -> {
+
+                    if (a.getSalary() < 50000) return Range.LOW;
+                    if (a.getSalary() >= 100000) return Range.HIGH;
+                    else return Range.MEDIUM;
+
+
+                }
+
+        ));
+
+
+        hashmap.entrySet().stream().forEach(a -> {
+
+            System.out.println(a.getKey() +"----------------->");
+
+            a.getValue().forEach(b -> {
+
+                System.out.println(b.getEName() + "<=>" + b.getSalary());
+
+
+            });
+
+        });
+
+        // OUTPUT
+//        HIGH----------------->
+//        hari<=>100000.0
+//        LOW----------------->
+//        santhosh<=>9077.0
+//        MEDIUM----------------->
+//        ram<=>91032.0
+//        fazil<=>51600.0
+//        jamal<=>82100.0
+
+    }
+
+
+}
+
+
