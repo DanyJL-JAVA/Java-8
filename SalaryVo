@@ -1,0 +1,122 @@
+import java.time.LocalDate;
+import java.util.*;
+import java.util.Date;
+import java.util.stream.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.sql.*;
+
+public class SalaryVo {
+
+    private int registerNo;
+    private String eName;
+    private double salary;
+    private LocalDate eDate;
+    private String place;
+
+
+    public SalaryVo(int registerNo, String eName, double salary, LocalDate eDate, String place) {
+
+        this.registerNo = registerNo;
+        this.eName = eName;
+        this.salary = salary;
+        this.eDate = eDate;
+        this.place = place;
+
+    }
+
+    public Integer getRegisterNo() {
+
+        return registerNo;
+
+    }
+
+    public void setRegisterNo(int registerNo) {
+
+        this.registerNo = registerNo;
+
+    }
+
+    //
+
+    public String getEName() {
+
+
+        return eName;
+
+    }
+
+    public void seteName(String eName) {
+
+        this.eName = eName;
+
+    }
+
+    //
+
+    public double getSalary() {
+
+        return salary;
+
+    }
+
+    public void setSalary(double salary) {
+
+
+        this.salary = salary;
+
+    }
+
+    //
+
+    public LocalDate getEDate() {
+
+        return eDate;
+
+    }
+
+    public void setEDate(LocalDate eDate) {
+
+        this.eDate = eDate;
+
+    }
+
+    //
+
+    public String getPlace() {
+
+        return place;
+
+    }
+
+    public void setPlace(String place) {
+
+        this.place = place;
+
+
+    }
+
+
+//    public class SalaryVo {
+//
+//        private int registerNo;
+//        private String eName;
+//        private double salary;
+//        private Date eDate;
+//        private String place;
+
+
+    public String toString() {
+
+        return "[SalaryVo => registerNo = " + registerNo + "| eName = " + eName + " | salary = " + salary + " | eDate = " + eDate + "| place = " + place + "]";
+
+    }
+
+
+}
+
+
+
+
