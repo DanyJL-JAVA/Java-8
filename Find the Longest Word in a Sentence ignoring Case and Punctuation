@@ -1,0 +1,37 @@
+import java.util.*;
+import java.util.stream.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.sql.*;
+import java.util.Iterator;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Main obj = new Main();
+
+		String s = "The quick, brown fox jumped over the lazy  dog!";
+
+		Arrays.stream(s.split("\\s+")).map(a -> a.toLowerCase().replaceAll("[^a-z\\s+]", ""))
+				.forEach(System.out::println);
+		System.out.println("-------------------------------------------------- \n");
+
+		String result = Arrays.stream(s.split("\\s+")).map(a -> a.replaceAll("[^a-z\\s+]", ""))
+				.max(Comparator.comparingInt(String::length)).get();
+
+		System.out.println("Answer =" + result); // OUTPUT : jumped
+
+	}
+
+	// Note : to Avoid Optional tag Straight forward ways use on -> .orElse() or
+	// .get() Method atlast.
+
+	
+	//Note [^a-z\\s+] ->
+	
+	// 1. ^ => Cap Symbol denotes "NOT Other than this". It Strictly says The given characters to be in (Small case alpha and  Empty space is allowed)
+	
+	
+}
