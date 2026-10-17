@@ -1,0 +1,53 @@
+import java.util.*;
+import java.util.Map.Entry;
+import java.util.stream.*;
+import java.util.function.Function;
+import java.sql.*;
+import java.time.LocalDate;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Main obj = new Main();
+
+//	    public class SalaryVo {
+		//
+//		        private int registerNo;
+//		        private String eName;
+//		        private double salary;
+//		        private Date eDate;
+//		        private String place;
+
+		List<SalaryVo> arrlst = Arrays.asList(new SalaryVo(21, "fazil", 7840, LocalDate.of(2019, 9, 12), "chennai"),
+				new SalaryVo(43, "hari", 4930, LocalDate.of(2011, 11, 12), "kerala"),
+				new SalaryVo(19, "kalai", 9310, LocalDate.of(2009, 4, 20), "chennai"),
+				new SalaryVo(10, "vimal", 3821, LocalDate.of(2014, 4, 11), "chennai"),
+				new SalaryVo(39, "kalpak", 9031, LocalDate.of(2012, 10, 11), "kerala"));
+
+
+//1 . Use Optional
+
+		//Just cover it with <Optioal> tag.
+		Optional<Entry<String, Long>> hashmap1 = arrlst.stream().map(a -> a.getEName().charAt(0)).map(String::valueOf)
+				.collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new,Collectors.counting()))
+				.entrySet().stream().max(Map.Entry.comparingByValue());
+
+System.out.println(hashmap1); // k=2
+
+// or
+
+
+// 2. Straight with result using .get() Method.
+Entry<String, Long> hashmap2 = arrlst.stream().map(a -> a.getEName().charAt(0)).map(String::valueOf)
+				.collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new,Collectors.counting()))
+				.entrySet().stream().max(Map.Entry.comparingByValue()).get();
+		
+		
+		System.out.println(hashmap2); // Optional[k=2]
+
+		
+		
+	}
+
+}
