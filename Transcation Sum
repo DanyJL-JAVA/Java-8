@@ -16,6 +16,9 @@ public class Main {
                 new TranscationVo("21-10-2021", 8000), new TranscationVo("11-02-2023", 1200));
 
 
+// If there is Double Value --> SalaryVo
+// Map<LocalDate, Double> hashmap = arrlst.stream().collect(Collectors.toMap(SalaryVo::getEDate, SalaryVo::getSalary, Double::sum, LinkedHashMap::new));
+
         Map<String, Integer> hashmap = arrlst.stream()
                 .collect(Collectors.toMap(TranscationVo::getTDate, TranscationVo::getTAmount, Integer::sum));
 
