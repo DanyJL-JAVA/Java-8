@@ -1,0 +1,42 @@
+import com.sun.security.jgss.GSSUtil;
+
+import java.time.LocalDate;
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.Iterator;
+import java.sql.*;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+
+        Integer[] arr = {34, 21, 56, 3, 12, 78, 82, 35, 11, 36, 2};
+
+        Integer[] array = Arrays.stream(arr).filter(n -> n % 2 == 0).toArray(Integer[]::new);
+
+        System.out.println(Arrays.toString(array));
+
+        Integer result = Arrays.stream(arr).filter(n -> n % 2 == 0).reduce(1, (a, b) -> a + b);
+
+        System.out.println(result);
+
+
+        //OUTPUT :
+//        [34, 56, 12, 78, 82, 36, 2] --> For Reference
+//        301 --> Result
+
+
+    }
+
+
+}
+
+
+
+
