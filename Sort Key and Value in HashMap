@@ -1,0 +1,40 @@
+import com.sun.security.jgss.GSSUtil;
+
+import java.time.LocalDate;
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.Iterator;
+import java.sql.*;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Map<String, Integer> hashmap = Map.of("monday", 1, "tuesday", 2, "wednesday", 3, "thursday", 4, "friday", 5);
+
+        Map<String, Integer> hashAscKey = hashmap.entrySet().stream().sorted(Map.Entry.comparingByKey(Comparator.naturalOrder()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> a, LinkedHashMap::new));
+
+        Map<String, Integer> hashDescVal = hashmap.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> a, LinkedHashMap::new));
+
+        System.out.println("Ascending Key => " + hashAscKey);
+        System.out.println("Descending Value => " + hashDescVal);
+
+
+
+
+
+    }
+
+
+}
+
+
+
+
