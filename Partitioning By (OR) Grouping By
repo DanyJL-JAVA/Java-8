@@ -1,0 +1,71 @@
+import java.util.*;
+import java.util.stream.*;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        List<SchoolVo> arrlst = Arrays.asList(
+                new SchoolVo(21, "santhosh", "english", 90),
+                new SchoolVo(31, "nirmal", "tamil", 34),
+                new SchoolVo(67, "hari", "maths", 88),
+                new SchoolVo(89, "ganesh", "english", 21),
+                new SchoolVo(88, "denvar", "science", 65),
+                new SchoolVo(32, "Jamal", "english", 88));
+
+
+        arrlst.stream()
+                .collect(Collectors.groupingBy(a -> a.getMarks() > 50))
+                .entrySet().stream().forEach(a -> {
+
+                    System.out.println(a.getKey() == true ? "Pass" : "Fail");
+                    a.getValue().forEach(System.out::println);
+
+                });
+
+
+    }
+
+
+}
+
+// (Or) Using grouping By
+
+//
+//import java.util.*;
+//import java.util.stream.*;
+//
+//
+//public class Main {
+//
+//    public static void main(String[] args) {
+//
+//
+//        Main obj = new Main();
+//
+//        List<SchoolVo> arrlst = Arrays.asList(
+//                new SchoolVo(21, "santhosh", "english", 90),
+//                new SchoolVo(31, "nirmal", "tamil", 34),
+//                new SchoolVo(67, "hari", "maths", 88),
+//                new SchoolVo(89, "ganesh", "english", 21),
+//                new SchoolVo(88, "denvar", "science", 65),
+//                new SchoolVo(32, "Jamal", "english", 88));
+//
+//
+//        Map<String, List<SchoolVo>> hashmap = arrlst.stream().collect(Collectors.groupingBy(a -> a.getMarks() > 50 ? "Pass" : "Fail"));
+//
+//        for (Map.Entry<String, List<SchoolVo>> hash : hashmap.entrySet()) {
+//
+//            System.out.println(hash.getKey() + "=>");
+//
+//            hash.getValue().forEach(System.out::println);
+//
+//
+//        }
+//
+//
+//    }
+//
+//
+//}
