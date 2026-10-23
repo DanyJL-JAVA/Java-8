@@ -22,14 +22,24 @@ public class Main {
 
         System.out.println(Arrays.toString(array));
 
-        Integer result = Arrays.stream(arr).filter(n -> n % 2 == 0).reduce(1, (a, b) -> a + b);
+        Integer resultAdd = Arrays.stream(arr).filter(n -> n % 2 == 0).reduce(0, (a, b) -> a + b);
 
-        System.out.println(result);
+        System.out.println(resultAdd);
 
 
         //OUTPUT :
 //        [34, 56, 12, 78, 82, 36, 2] --> For Reference
 //        301 --> Result
+
+        ///  **Note : Keep in mind For add identity can be in "zero" by default.
+        /// for multiply identity must be in "One".
+
+        Integer result1 = Arrays.stream(arr).filter(n -> n % 2 != 0)
+                .reduce(1, (a, b) -> a * b);
+
+        System.out.println(result1);
+
+        // OUTPUT : 24255
 
 
     }
