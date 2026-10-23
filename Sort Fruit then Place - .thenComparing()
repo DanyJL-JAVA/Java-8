@@ -1,0 +1,51 @@
+import com.sun.security.jgss.GSSUtil;
+
+import java.time.LocalDate;
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.Iterator;
+import java.sql.*;
+
+
+public class Main {
+
+
+    public static void main(String[] args) {
+
+
+        List<MarketVo> arrlst = Arrays.asList(new MarketVo(12, "mango", 800, "chennai"),
+                new MarketVo(8, "apple", 900, "kerala"),
+                new MarketVo(17, "melon", 120, "tanjore"),
+                new MarketVo(21, "apple", 200, "chennai"),
+                new MarketVo(81, "mango", 700, "kerala"),
+                new MarketVo(10, "apple", 920, "chennai"),
+                new MarketVo(91, "apple", 800, "banglore"));
+
+
+        arrlst.sort(Comparator.comparing(MarketVo::getFruit).thenComparing(MarketVo::getPlace));
+
+
+        arrlst.forEach(System.out::println);
+
+        /// OUTPUT:
+//        MarketVo => [serialNo = 91 | fruit = apple | price = 800.0| place = banglore]
+//        MarketVo => [serialNo = 21 | fruit = apple | price = 200.0| place = chennai]
+//        MarketVo => [serialNo = 10 | fruit = apple | price = 920.0| place = chennai]
+//        MarketVo => [serialNo = 8 | fruit = apple | price = 900.0| place = kerala]
+//        MarketVo => [serialNo = 12 | fruit = mango | price = 800.0| place = chennai]
+//        MarketVo => [serialNo = 81 | fruit = mango | price = 700.0| place = kerala]
+//        MarketVo => [serialNo = 17 | fruit = melon | price = 120.0| place = tanjore]
+
+
+    }
+
+
+}
+
+
+
+
