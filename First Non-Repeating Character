@@ -1,0 +1,52 @@
+import java.time.LocalDate;
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+
+        String s = "hello world this is ronaldo";
+
+
+        // All String With Non-Repeating Character(using Collectors.toMap())
+        Map<String, Long> hashmap = s.chars().mapToObj(c -> (char) c).map(Object::toString)
+                .filter(n -> !n.equals(" "))
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                .entrySet().stream().filter(n -> n.getValue() == 1)
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> a, LinkedHashMap::new));
+
+        System.out.println(hashmap);
+
+
+        // String & Count With Non-Repeating Character (using Map.Entry)
+        Map.Entry<String, Long> hash = s.chars().mapToObj(c -> (char) c).map(Object::toString)
+                .filter(b -> !b.equals(" ")).collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                .entrySet().stream().filter(l -> l.getValue() == 1).findFirst().get();
+
+        System.out.println(hash);
+
+
+        // Excatly the String With Non-Repeating Character (using .map())
+        String str = s.chars().mapToObj(c -> (char) c).map(Object::toString)
+                .filter(a -> !a.equals(" "))
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                .entrySet().stream().filter(b -> b.getValue() == 1)
+                .map(r -> r.getKey()).findFirst().get();
+
+
+        System.out.println(str);
+
+        // OUTPUT:
+
+//        {e=1, w=1, t=1, n=1, a=1}
+//        e=1
+//        e
+
+
+    }
+
+}
