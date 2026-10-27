@@ -20,6 +20,12 @@ public class Main {
         Integer result = IntStream.rangeClosed(1,num).mapToObj(c -> (char) c)
                 .mapToInt(Integer::valueOf).reduce(1,(a,b) -> a * b);
 
+// or --> More Simplest way
+
+// Integer result = IntStream.rangeClosed(1,num).reduce(1,(a,b) -> a * b);
+
+
+
         System.out.println(result);
 
 
