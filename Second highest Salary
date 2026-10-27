@@ -26,6 +26,8 @@ public class Main{
                 new EmployeeVo(7821,"harish",2830,"kerala"),
                 new EmployeeVo(12,"kalai",2910,"kerala"));
 
+//NOTE* -> For Single (data 'or' Object) result Just We can Simply Denote the PoJo class Name(EmployeeVo). Only if there is single Object Result.
+
         EmployeeVo result = arrlst.stream().sorted(Comparator.comparingDouble(EmployeeVo::getSalary).reversed())
                 .skip(1).limit(1).findFirst().get();
 
