@@ -1,0 +1,98 @@
+import java.util.*;
+import java.util.stream.*;
+
+
+public class BankVo {
+
+
+    private int accountNo;
+    private String eName;
+    private double salary;
+    private String bank;
+
+
+    // Constuctor
+
+    public BankVo(int accountNo, String eName, double salary, String bank) {
+
+        this.accountNo = accountNo;
+        this.eName = eName;
+        this.salary = salary;
+        this.bank = bank;
+
+    }
+
+
+    // accountNo
+    public int getAccountNo() {
+
+
+        return accountNo;
+
+    }
+
+    public void setAccountNo(int accountNo) {
+
+        this.accountNo = accountNo;
+
+    }
+
+// eName
+
+    public String getEName() {
+
+
+        return eName;
+
+    }
+
+    public void setEName(String eName) {
+
+        this.eName = eName;
+
+    }
+
+
+    public double getSalary() {
+
+        return salary;
+
+    }
+
+    public void setSalary(double salary) {
+
+        this.salary = salary;
+
+    }
+
+
+    public String getBank() {
+        return bank;
+    }
+
+    public void setBank(String bank) {
+        this.bank = bank;
+    }
+
+
+    // salary
+
+    //bank
+
+//    private int accountNo;
+//    private String eName;
+//    private int salary;
+//    private String bank;
+
+//    BankVo
+
+    public String toString() {
+
+
+        return "[BankVO -> accountNo = " + accountNo + " | eName = " + eName + " | salary = " + salary + " | bank = " + bank + "]";
+
+
+    }
+
+
+}
