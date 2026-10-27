@@ -1,0 +1,60 @@
+import java.time.LocalDate;
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        // Max Salary in Each Bank
+//        public class BankVo {
+//
+//
+//            private int accountNo;
+//            private String eName;
+//            private int salary;
+//            private String bank;
+
+//        public BankVo(int accountNo, String eName, Double salary, String bank) {
+
+        List<BankVo> arrlst = Arrays.asList(new BankVo(212, "santhosh",8900, "canara"),
+                new BankVo(331, "hari", 9000, "bob"),
+                new BankVo(291, "kalai", 9830, "hdfc"),
+                new BankVo(221, "sankar", 8392, "canara"),
+                new BankVo(203, "ramesh", 4850, "rbi"),
+                new BankVo(301, "neelima", 8840, "canara"),
+                new BankVo(491, "shalini", 9000, "sbi"),
+                new BankVo(201, "sathish", 10820, "rbi"),
+                new BankVo(102, "jamal", 3820, "hdfc"));
+
+
+
+        Map<String,Optional<BankVo>> lst = arrlst.stream()
+                .collect(Collectors.groupingBy(BankVo::getBank,Collectors.maxBy(Comparator.comparingDouble(BankVo::getSalary))));
+
+
+        lst.entrySet().stream().forEach(a -> {
+
+
+            System.out.println(a.getKey() + "==>" + a.getValue().get());
+
+
+            // OUTPUT : 
+            
+//            bob==>[BankVO -> accountNo = 331 | eName = hari | salary = 9000.0 | bank = bob]
+//            rbi==>[BankVO -> accountNo = 201 | eName = sathish | salary = 10820.0 | bank = rbi]
+//            hdfc==>[BankVO -> accountNo = 291 | eName = kalai | salary = 9830.0 | bank = hdfc]
+//            canara==>[BankVO -> accountNo = 212 | eName = santhosh | salary = 8900.0 | bank = canara]
+//            sbi==>[BankVO -> accountNo = 491 | eName = shalini | salary = 9000.0 | bank = sbi]
+
+
+
+
+        });
+
+
+    }
+
+}
