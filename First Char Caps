@@ -1,0 +1,24 @@
+import java.time.LocalDate;
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+
+        String s = "hello world this is dany";
+        // OUTPUT : Hello World This Is Dany
+
+
+        String result = Arrays.stream(s.split("\\s+")).map(a -> a.substring(0,1).toUpperCase() + a.substring(1).toLowerCase())
+                .collect(Collectors.joining(" "));
+
+        System.out.println(result);
+
+
+    }
+
+}
