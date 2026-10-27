@@ -16,7 +16,7 @@ public class Main{
 
         Double result = arrlst.stream().mapToInt(Integer::valueOf).average().getAsDouble();
 
-        System.out.println(result);
+        System.out.println(result); // OUTPUT = 30.0
 
 
 
@@ -31,7 +31,8 @@ public class Main{
 
 //        Double result = arrlst.stream().mapToInt(Integer::intValue).average().orElse(0);
 //
-//        System.out.println(result);
+//        System.out.println(result); // OUTPUT = 30.0
+
 
 
     }
