@@ -8,8 +8,11 @@ public class Main {
 
 		
 		List<Integer> arrlst = Arrays.asList(4,8,15,16,23,42); // OUTPUT : [9.0, 13.0, 18.0, 27.0]
-		
 		int window = 3;
+
+//*NOTE :
+        //If .range() [<] // 6 - 3 - 1 => 4 then, 0,1,2,3 || so, If you using .range() - give (-1) 
+        //If .rangeClosed() [<=] // 6 - 3 => 3 then, 0,1,2,3 || If .rangeClosed() -> No! (-1)
 		
 		List<List<Integer>> lst1 = IntStream.range(0, (arrlst.size() - (window - 1)))
 				.mapToObj(i -> arrlst.subList(i, i + window))
@@ -22,7 +25,7 @@ public class Main {
 		// Actuall Result
 		
 		// ls - (ws - 1) -> (i.e) 
-		
+
 		List<Double> lst = IntStream.range(0, (arrlst.size() - (window - 1)))
 				.mapToObj(i -> arrlst.subList(i, i + window))
 				.map(w -> w.stream().mapToInt(Integer::intValue)
