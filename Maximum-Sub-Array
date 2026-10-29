@@ -12,12 +12,20 @@ public class Main {
     public static void main(String[] args) {
 
 
-       //1. Using List
+        //1. Using List
 
         Integer[] array = {2, 1, 5, 1, 3, 2};
         Integer window = 3;
 
+        System.out.println("List ==============================================================>>");
+
         List<Integer> arrlst = Arrays.asList(array);
+
+        List<List<Integer>> lst = IntStream.rangeClosed(0,arrlst.size() - (window))
+                .mapToObj(i -> arrlst.subList(i , i + window))
+                .collect(Collectors.toList());
+
+        System.out.println(lst); // [[2, 1, 5], [1, 5, 1], [5, 1, 3], [1, 3, 2]]
 
         Integer resultlst = IntStream.range(0,arrlst.size() - (window - 1))
                 .mapToObj(i -> arrlst.subList(i, window + i))
@@ -28,16 +36,37 @@ public class Main {
 
         ////////////////////////////////////////////////////////////
 
-       ///1. Using Array
+        ///1. Using Array
 
-        int[] arr = {2, 1, 5, 1, 3, 2};
-        int k = 3;
+        Integer[] arr = {2, 1, 5, 1, 3, 2};
+        Integer k = 3;
 
-        int resultArr = IntStream.range(0,arr.length - (k - 1))
-                .map(i -> Arrays.stream(arr,i,i + k).sum())
+        System.out.println("Array ==============================================================>>");
+
+        Integer[][] array1 = IntStream.rangeClosed(0, arr.length - window)
+                .mapToObj(i -> Arrays.copyOfRange(arr, i, i + window))
+                .toArray(Integer[][]::new);
+
+        System.out.println(Arrays.deepToString(array1)); // OUTPUT : [[2, 1, 5], [1, 5, 1], [5, 1, 3], [1, 3, 2]]
+
+        Integer resultArr = IntStream.range(0,arr.length - (k - 1))
+                .map(i -> Arrays.stream(arr,i,i + k).mapToInt(Integer::intValue).sum())
                 .max().orElse(0);
 
         System.out.println(resultArr); // OUTPUT : 9
+
+
+//*NOTE :
+
+// int[] arr = {2, 1, 5, 1, 3, 2};
+
+// Arrays.copyOfRange(originalArray, fromIndex, toIndex)
+// Arrays.copyOfRange(...) is a convenient way to create a new array containing a portion (slice) of another array.
+
+//Many developers confuse these:(Arrays.stream() && Arrays.copyOfRange())
+
+// Arrays.stream(arr, 1, 4) -> Returns "IntStream" -> You can then perform operations like: Arrays.stream(arr, 1, 4).sum(); -> OUTPUT : 7
+// Arrays.copyOfRange(arr, 1 ,4) -> Creates a new array. -> Returns "int[]" -> OUTPUT : [1, 5, 1]
 
 
     }
