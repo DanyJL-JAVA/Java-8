@@ -1,0 +1,45 @@
+
+
+// Ques : Finding Maximum Sub Array following K- Elements using Sliding Window
+
+
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+
+       //1. Using List
+
+        Integer[] array = {2, 1, 5, 1, 3, 2};
+        Integer window = 3;
+
+        List<Integer> arrlst = Arrays.asList(array);
+
+        Integer resultlst = IntStream.range(0,arrlst.size() - (window - 1))
+                .mapToObj(i -> arrlst.subList(i, window + i))
+                .map(w -> w.stream().mapToInt(Integer::intValue)
+                        .sum()).max(Comparator.comparingInt(a -> a)).get();
+
+        System.out.println(resultlst); // OUTPUT :  9
+
+        ////////////////////////////////////////////////////////////
+
+       ///1. Using Array
+
+        int[] arr = {2, 1, 5, 1, 3, 2};
+        int k = 3;
+
+        int resultArr = IntStream.range(0,arr.length - (k - 1))
+                .map(i -> Arrays.stream(arr,i,i + k).sum())
+                .max().orElse(0);
+
+        System.out.println(resultArr); // OUTPUT : 9
+
+
+    }
+
+}
