@@ -1,0 +1,24 @@
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+import java.sql.*;
+import java.time.LocalDate;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		String s = null;
+//		String s = "sun";
+
+		String str = Optional.ofNullable(s).orElse("moon");
+
+		System.out.println(str);
+
+	}
+
+}
