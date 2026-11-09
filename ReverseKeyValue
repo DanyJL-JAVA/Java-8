@@ -1,0 +1,68 @@
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+import java.sql.*;
+import java.time.LocalDate;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Map<Integer, String> hashmap = Map.of(4, "thursday", 2, "tuesday", 7, "sunday", 5, "friday", 1, "monday", 6,
+				"saturday", 3, "wednesday");
+
+		// Comparing With key // ASC Order
+
+		Map<Integer, String> hash = hashmap.entrySet().stream()
+				.sorted(Map.Entry.comparingByKey(Comparator.naturalOrder()))
+				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> a, LinkedHashMap::new));
+
+		System.out.println("Comparing key [Asc] =>" + hash); // OUTPUT : {1=monday,
+		// 2=tuesday, 3=wednesday, 4=thursday,
+		// 5=friday, 6=saturday,
+		// 7=sunday}
+
+		///////////////////////////////////////////////////////////////////////////////////////
+
+		// Comparing With key // DESC Order
+
+//		Map<Integer, String> hash = hashmap.entrySet().stream()
+//				.sorted(Map.Entry.comparingByKey(Comparator.reverseOrder()))
+//				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> a, LinkedHashMap::new));
+
+//		System.out.println("Comparing key [Desc] =>" + hash); // OUTPUT : Comparing key =>{7=sunday, 6=saturday, 5=friday,
+		// 4=thursday, 3=wednesday, 2=tuesday, 1=monday}
+
+		///////////////////////////////////////////////////////////////////////////////////////
+
+		// Comparing with Value // ASC Order
+
+		Map<Integer, String> hash1 = hashmap.entrySet().stream()
+				.sorted(Map.Entry.comparingByValue(Comparator.naturalOrder()))
+				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> a, LinkedHashMap::new));
+
+		System.out.println("Comparing Value [Asc] =>" + hash1);
+
+		// OUTPUT : Comparing Value =>{5=friday, 1=monday, 6=saturday,
+		// 7=sunday, 4=thursday, 2=tuesday, 3=wednesday}
+
+		//////////////////////////////////////////////////////////////////////////////////
+
+		// Comparing with Value // Desc Order
+
+//		Map<Integer, String> hash1 = hashmap.entrySet().stream()
+//				.sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+//				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> a, LinkedHashMap::new));
+
+//		System.out.println("Comparing Value [Desc] =>" + hash1);
+
+		// OUTPUT Comparing Value =>{3=wednesday, 2=tuesday, 4=thursday, 7=sunday,
+		// 6=saturday, 1=monday, 5=friday}
+
+	}
+
+}
