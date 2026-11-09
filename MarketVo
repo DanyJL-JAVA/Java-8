@@ -1,0 +1,97 @@
+import java.util.*;
+import java.util.stream.*;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.Iterator;
+import java.sql.*;
+
+public class MarketVo {
+
+
+    private int serialNo;
+    private String fruit;
+    private double price;
+    private String place;
+
+
+    public MarketVo(int serialNo, String fruit, double price, String place) {
+
+        this.serialNo = serialNo;
+        this.fruit = fruit;
+        this.price = price;
+        this.place = place;
+
+
+    }
+
+    //serialNo
+
+    public int getSerialNo() {
+
+        return serialNo;
+    }
+
+    public void setSerialNo(int serialNo) {
+
+        this.serialNo = serialNo;
+
+    }
+
+    //fruit
+
+    public String getFruit() {
+
+        return fruit;
+
+    }
+
+    public void setFruit() {
+
+        this.fruit = fruit;
+
+    }
+
+    // price
+
+    public double getPrice() {
+
+        return price;
+
+    }
+
+    public void setPrice(double price) {
+
+        this.price = price;
+
+    }
+
+    // place
+    public String getPlace() {
+
+        return place;
+
+    }
+
+    public void setPlace(String place) {
+
+        this.place = place;
+
+    }
+
+
+    public String toString() {
+
+//        public class  {
+//
+//
+//            private int serialNo;
+//            private String fruit;
+//            private double price;
+//            private String place;
+
+        return "MarketVo => [serialNo = " + serialNo + " | fruit = " + fruit + " | price = " + price + "| place = " + place + "]";
+    }
+
+
+}
