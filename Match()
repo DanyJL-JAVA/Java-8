@@ -24,6 +24,13 @@ public class Main {
 
 		System.out.println(result);
 
+		// or
+
+		String s = "sajk34n9s";
+
+		boolean result4 = s.chars().mapToObj(c -> (char) c).anyMatch(a -> a == '9');
+		System.out.println(result4);
+
 		/// 2. .allMatch()
 
 		String[] arr1 = { "friday", "friday", "friday", "friday" };
@@ -45,6 +52,7 @@ public class Main {
 //		true
 //		true
 //		true
+//      true
 
 	}
 
