@@ -1,0 +1,51 @@
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+import java.sql.*;
+import java.time.LocalDate;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		// .allMatch
+		// .noneMatch()
+		// .anyMatch()
+
+		String[] arr = { "monday", "tuesday", "wednesday", "friday" };
+
+		/// 1. .anyMatch()
+
+		boolean result = Arrays.stream(arr).anyMatch(a -> a.equals("friday"));
+
+		System.out.println(result);
+
+		/// 2. .allMatch()
+
+		String[] arr1 = { "friday", "friday", "friday", "friday" };
+
+		boolean result1 = Arrays.stream(arr1).allMatch(b -> b.equals("friday"));
+
+		System.out.println(result1);
+
+		/// 3. .noneMatch()
+
+		String[] arr2 = { "sunday", "saturday", "thursday", "wednesday", "tuesday", "monday" };
+
+		boolean result3 = Arrays.stream(arr2).noneMatch(c -> c.equals("friday"));
+
+		System.out.println(result3);
+
+		// OUTPUT
+
+//		true
+//		true
+//		true
+
+	}
+
+}
