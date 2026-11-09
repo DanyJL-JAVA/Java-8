@@ -1,0 +1,45 @@
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+import java.sql.*;
+import java.time.LocalDate;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		String[] arr = { "sunday", "tuesday", "wednesday", "thursday", "friday" };
+		List<Integer> arrlst = Arrays.asList(34, 62, 7, 35, 23, 2, 90);
+
+		// Array to List
+		List<String> lst = Arrays.asList(arr);
+
+		System.out.println("Array ~ List -> " + lst);
+
+		// List to Array
+
+		Integer[] array = arrlst.toArray(new Integer[arrlst.size()]);
+
+		System.out.println("List ~ Array ->" + Arrays.toString(array));
+
+		// 3. list to map
+
+		List<MarketVo> arraylst = Arrays.asList(new MarketVo(12, "mango", 800, "chennai"),
+				new MarketVo(8, "apple", 900, "kerala"), new MarketVo(17, "melon", 120, "tanjore"),
+				new MarketVo(21, "apple", 200, "chennai"), new MarketVo(81, "mango", 700, "kerala"),
+				new MarketVo(10, "apple", 920, "chennai"), new MarketVo(91, "apple", 800, "banglore"));
+
+//	    public MarketVo(int serialNo, String fruit, double price, String place) {
+
+		Map<String, Double> hashmap = arraylst.stream()
+				.collect(Collectors.toMap(MarketVo::getFruit, MarketVo::getPrice, (a, b) -> a, LinkedHashMap::new));
+
+		System.out.println("List ~ Map -> " + hashmap);
+
+	}
+
+}
