@@ -1,0 +1,25 @@
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+import java.sql.*;
+import java.time.LocalDate;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+//		String s = "radar"; // true
+		  String s = "madam"; // true
+ 
+		boolean result = IntStream.rangeClosed(0, s.length() / 2)
+				.allMatch(i -> s.charAt(i) == s.charAt(s.length() - 1 - i));
+
+		System.out.println(result);
+
+	}
+
+}
