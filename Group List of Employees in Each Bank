@@ -1,0 +1,62 @@
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+import java.sql.*;
+import java.time.LocalDate;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		List<BankVo> arrlst = Arrays.asList(new BankVo(212, "santhosh", 8900, "canara"),
+				new BankVo(331, "hari", 9000, "bob"), new BankVo(291, "kalai", 9830, "hdfc"),
+				new BankVo(221, "sankar", 8392, "canara"), new BankVo(203, "ramesh", 4850, "rbi"),
+				new BankVo(301, "neelima", 8840, "canara"), new BankVo(491, "shalini", 9000, "sbi"),
+				new BankVo(201, "sathish", 10820, "rbi"), new BankVo(102, "jamal", 3820, "hdfc"));
+
+		// lst employee by bank
+
+//		public BankVo(int accountNo, String eName, double salary, String bank) {
+
+		Map<String, List<BankVo>> hashmap = arrlst.stream().collect(Collectors.groupingBy(BankVo::getBank));
+
+		for (Map.Entry<String, List<BankVo>> hash : hashmap.entrySet()) {
+
+			System.out.println("~" + hash.getKey() + "===========================================>");
+
+			hash.getValue().forEach(System.out::println);
+
+		}
+
+	}
+
+}
+
+
+/// OUTPUT :
+
+//~bob===========================================>
+//[BankVO -> accountNo = 331 | eName = hari | salary = 9000.0 | bank = bob]
+//~rbi===========================================>
+//[BankVO -> accountNo = 203 | eName = ramesh | salary = 4850.0 | bank = rbi]
+//[BankVO -> accountNo = 201 | eName = sathish | salary = 10820.0 | bank = rbi]
+//~hdfc===========================================>
+//[BankVO -> accountNo = 291 | eName = kalai | salary = 9830.0 | bank = hdfc]
+//[BankVO -> accountNo = 102 | eName = jamal | salary = 3820.0 | bank = hdfc]
+//~canara===========================================>
+//[BankVO -> accountNo = 212 | eName = santhosh | salary as= 8900.0 | bank = canara]
+//[BankVO -> accountNo = 221 | eName = sankar | salary = 8392.0 | bank = canara]
+//[BankVO -> accountNo = 301 | eName = neelima | salary = 8840.0 | bank = canara]
+//~sbi===========================================>
+//[BankVO -> accountNo = 491 | eName = shalini | salary = 9000.0 | bank = sbi]
+
+
+
+
+
+
+
